@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_food/navigator_keys.dart';
 import 'package:flutter_food/pages/home/home.dart';
 import 'package:flutter_food/pages/menu/menu.dart';
-import 'package:flutter_food/pages/favorite/favorite.dart';
-import 'package:flutter_food/pages/profile/profile.dart';
+import 'package:flutter_food/pages/cart/cart.dart';
+import 'package:flutter_food/pages/orders/orders.dart';
 import 'package:flutter_food/tab_item_widget.dart';
 
 get tabs => [
       TabItemWidget(
         routes: {
-          '/': (BuildContext context) => const Favorite(),
+          '/': (BuildContext context) => const Cart(),
         },
-        navigatorKey: NavigatorKeys.navigatorKeyFavorite,
+        navigatorKey: NavigatorKeys.navigatorKeyCart,
       ),
       TabItemWidget(
         routes: {
@@ -21,21 +21,12 @@ get tabs => [
       ),
       TabItemWidget(
         routes: {
-          '/': (BuildContext context) => const Profile(),
+          '/': (BuildContext context) => const Orders(),
         },
-        navigatorKey: NavigatorKeys.navigatorKeyProfile,
+        navigatorKey: NavigatorKeys.navigatorKeyOrders,
       ),
     ];
 
 Map<String, WidgetBuilder> get routes => {
       '/': (context) => const HomePage(),
-      // '/page4': (context) {
-      //   final args = ModalRoute.of(context)!.settings.arguments;
-      //   if (args is Map<String, String>) {
-      //     final name = args['name'];
-      //     return Page4(name: name);
-      //   }
-
-      //   return const Page4();
-      // }
     };
