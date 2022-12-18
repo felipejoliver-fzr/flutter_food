@@ -64,6 +64,17 @@ mixin _$CartStore on _CartStoreBase, Store {
   }
 
   @override
+  void removeItem(dynamic idToRemove) {
+    final _$actionInfo = _$_CartStoreBaseActionController.startAction(
+        name: '_CartStoreBase.removeItem');
+    try {
+      return super.removeItem(idToRemove);
+    } finally {
+      _$_CartStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 value: ${value},

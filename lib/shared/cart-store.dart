@@ -22,17 +22,19 @@ abstract class _CartStoreBase with Store {
   @action
   void addToCart() => List.from(cartProducts
     ..add(ProductItem(
+        id: value,
         name: 'X-Burguer ${value}',
         price: 20,
         img: "xburguer.png",
         quantity: 1)));
+
+  @action
+  void removeItem(idToRemove) =>
+      List.from(cartProducts..removeWhere((item) => item.id == idToRemove));
 
   @computed
   bool get listContains => cartProducts.isNotEmpty;
 
   @computed
   int get getValue => value;
-
-  // @computed
-  // List<ProductItem> get getCartProducts => cartProducts;
 }

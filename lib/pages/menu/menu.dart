@@ -13,15 +13,15 @@ class Menu extends StatefulWidget {
 class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
-    final cartController = context.read<CartStore>();
+    final cartStore = context.read<CartStore>();
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text('NOSSO CARDÁPIO')),
         actions: [
           IconButton(
               onPressed: () {
-                cartController.increment();
-                cartController.addToCart();
+                cartStore.increment();
+                cartStore.addToCart();
               },
               icon: const Icon(Icons.shopping_cart_outlined))
         ],
@@ -32,7 +32,7 @@ class _MenuState extends State<Menu> {
           children: <Widget>[
             Observer(
               builder: (_) => const Text('teste'
-                  //'${cartController.getValue} ${cartController.cartProducts.last.name}',
+                  //'${cartStore.getValue} ${cartStore.cartProducts.last.name}',
                   ),
             ),
           ],

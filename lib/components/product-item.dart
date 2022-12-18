@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food/shared/cart-store.dart';
+import 'package:provider/provider.dart';
 
 class ProductItem extends StatelessWidget {
   const ProductItem(
       {super.key,
+      required this.id,
       required this.name,
       required this.price,
       required this.img,
       required this.quantity});
 
+  final int id;
   final String name;
   final double price;
   final String img;
@@ -15,6 +19,7 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cartStore = context.read<CartStore>();
     return ListTile(
       leading: ConstrainedBox(
         constraints: const BoxConstraints(
@@ -31,7 +36,9 @@ class ProductItem extends StatelessWidget {
           Icons.delete,
           color: Colors.red,
         ),
-        onPressed: () {},
+        onPressed: () {
+          cartStore.removeItem(id);
+        },
       ),
       subtitle: Text("R\$ $price"),
     );

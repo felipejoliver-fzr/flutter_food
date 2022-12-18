@@ -15,15 +15,16 @@ class Cart extends StatefulWidget {
 class _CartState extends State<Cart> {
   @override
   Widget build(BuildContext context) {
-    final cartController = context.read<CartStore>();
+    final cartStore = context.read<CartStore>();
 
     Widget _buildItem(int index) {
-      ProductItem product = cartController.cartProducts[index];
+      ProductItem product = cartStore.cartProducts[index];
       return Padding(
         padding: cardPadding,
         child: Container(
             decoration: cardBoxStyle(),
             child: ProductItem(
+                id: product.id,
                 img: product.img,
                 name: product.name,
                 price: product.price,
@@ -45,7 +46,7 @@ class _CartState extends State<Cart> {
                 separatorBuilder: (_, __) => const SizedBox(
                       height: 10,
                     ),
-                itemCount: cartController.cartProducts.length);
+                itemCount: cartStore.cartProducts.length);
           }),
         ),
       ]),
