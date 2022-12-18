@@ -1,5 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_food/components/product-item.dart';
+import 'package:flutter_food/daos/order-dao.dart';
+import 'package:flutter_food/models/order.dart';
 import 'package:flutter_food/shared/cart-store.dart';
 import 'package:flutter_food/utils/customStyles.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -37,6 +41,16 @@ class _CartState extends State<Cart> {
         title: const Text('CARRINHO'),
       ),
       body: Column(children: [
+        Observer(builder: (_) {
+          return Visibility(
+            visible: cartStore.listContains == false,
+            child: const Text(
+              "Carrinho vazio",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+          );
+        }),
         Expanded(
           child: Observer(builder: (_) {
             return ListView.separated(
@@ -54,10 +68,47 @@ class _CartState extends State<Cart> {
           height: 50,
           width: double.infinity,
           child: Observer(builder: (_) {
-            return Text(
-              "Total: R\$ ${cartStore.getTotalCart}",
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Visibility(
+                  visible: cartStore.listContains,
+                  child: Text(
+                    "Total: R\$ ${cartStore.getTotalCart}",
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
+                ),
+                const SizedBox(
+                  width: 20, //<-- SEE HERE
+                ),
+                Visibility(
+                  visible: cartStore.listContains,
+                  child: ElevatedButton(
+                    onPressed: () async {
+                      List<String> productsString = [];
+
+                      for (var c = 0; c < cartStore.cartProducts.length; c++) {
+                        var product = cartStore.cartProducts[c];
+                        productsString.add(
+                            '{"name": ${product.name}, "price": ${product.price}, "quantity": 1}');
+                      }
+
+                      String jsonProducts = jsonEncode(productsString);
+                      Order order = Order('Cliente Teste', jsonProducts);
+
+                      int id = await OrderDAO().insertOrder(order);
+                      cartStore.clear();
+                    },
+                    child: const Text(
+                      'Confirmar pedido',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ),
+                ),
+              ],
             );
           }),
         )

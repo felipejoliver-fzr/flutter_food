@@ -32,6 +32,9 @@ abstract class _CartStoreBase with Store {
   void removeItem(idToRemove) =>
       List.from(cartProducts..removeWhere((item) => item.id == idToRemove));
 
+  @action
+  void clear() => List.from(cartProducts..clear());
+
   @computed
   bool get listContains => cartProducts.isNotEmpty;
 
