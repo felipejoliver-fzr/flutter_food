@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../navigator_keys.dart';
+import 'package:flutter_food/shared/cart-store.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:provider/provider.dart';
 
 class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);
@@ -12,16 +13,30 @@ class Menu extends StatefulWidget {
 class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
+    final cartController = context.read<CartStore>();
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text('NOSSO CARDÁPIO')),
         actions: [
           IconButton(
-              onPressed: () {}, icon: const Icon(Icons.shopping_cart_outlined))
+              onPressed: () {
+                cartController.increment();
+                cartController.addToCart();
+              },
+              icon: const Icon(Icons.shopping_cart_outlined))
         ],
       ),
-      body: Container(
-        color: Colors.white,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Observer(
+              builder: (_) => const Text('teste'
+                  //'${cartController.getValue} ${cartController.cartProducts.last.name}',
+                  ),
+            ),
+          ],
+        ),
       ),
     );
   }

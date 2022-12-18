@@ -11,18 +11,27 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  
   cupertino_icons: ^1.0.2
   flutter_svg: ^1.1.6
+  mobx: ^2.1.3
+  flutter_mobx: ^2.0.6+5
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^2.0.0
+  mobx_codegen: ^2.1.1
+  build_runner: ^2.3.3
 
 flutter:
   uses-material-design: true
 
   assets:
     - images/xburguer.png
+
+scripts:
+  mobb: flutter pub get & flutter pub run build_runner build --delete-conflicting-outputs
+  mobx: flutter pub get & flutter pub run build_runner watch --delete-conflicting-outputs
