@@ -49,6 +49,18 @@ class _CartState extends State<Cart> {
                 itemCount: cartStore.cartProducts.length);
           }),
         ),
+        Container(
+          color: Colors.grey[50],
+          height: 50,
+          width: double.infinity,
+          child: Observer(builder: (_) {
+            return Text(
+              "Total: R\$ ${cartStore.getTotalCart}",
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            );
+          }),
+        )
       ]),
     );
   }

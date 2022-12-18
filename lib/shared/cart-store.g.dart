@@ -22,6 +22,13 @@ mixin _$CartStore on _CartStoreBase, Store {
   int get getValue => (_$getValueComputed ??=
           Computed<int>(() => super.getValue, name: '_CartStoreBase.getValue'))
       .value;
+  Computed<double>? _$getTotalCartComputed;
+
+  @override
+  double get getTotalCart =>
+      (_$getTotalCartComputed ??= Computed<double>(() => super.getTotalCart,
+              name: '_CartStoreBase.getTotalCart'))
+          .value;
 
   late final _$valueAtom = Atom(name: '_CartStoreBase.value', context: context);
 
@@ -79,7 +86,8 @@ mixin _$CartStore on _CartStoreBase, Store {
     return '''
 value: ${value},
 listContains: ${listContains},
-getValue: ${getValue}
+getValue: ${getValue},
+getTotalCart: ${getTotalCart}
     ''';
   }
 }

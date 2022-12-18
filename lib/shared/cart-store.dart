@@ -37,4 +37,8 @@ abstract class _CartStoreBase with Store {
 
   @computed
   int get getValue => value;
+
+  @computed
+  double get getTotalCart =>
+      cartProducts.fold(0, (previous, current) => previous + current.price);
 }
