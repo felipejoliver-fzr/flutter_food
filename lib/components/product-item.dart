@@ -23,7 +23,7 @@ class ProductItem extends StatelessWidget {
           maxWidth: 64,
           maxHeight: 64,
         ),
-        child: Image.asset("images/$img", fit: BoxFit.cover),
+        child: Image.asset("./images/$img", fit: BoxFit.cover),
       ),
       title: Text("${quantity.toString()}x - $name"),
       trailing: IconButton(
