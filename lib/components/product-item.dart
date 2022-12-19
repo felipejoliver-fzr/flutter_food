@@ -1,3 +1,4 @@
+// ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_food/shared/cart-store.dart';
 import 'package:provider/provider.dart';
@@ -9,10 +10,12 @@ class ProductItem extends StatelessWidget {
       required this.name,
       required this.price,
       required this.img,
+      required this.description,
       required this.quantity});
 
   final int id;
   final String name;
+  final String description;
   final double price;
   final String img;
   final int quantity;
@@ -28,7 +31,7 @@ class ProductItem extends StatelessWidget {
           maxWidth: 64,
           maxHeight: 64,
         ),
-        child: Image.asset("./images/$img", fit: BoxFit.cover),
+        child: Image.asset("images/$img", fit: BoxFit.cover),
       ),
       title: Text("${quantity.toString()}x - $name"),
       trailing: IconButton(

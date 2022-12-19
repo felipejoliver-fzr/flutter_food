@@ -30,6 +30,7 @@ class _CartState extends State<Cart> {
             child: ProductItem(
                 id: product.id,
                 img: product.img,
+                description: product.description,
                 name: product.name,
                 price: product.price,
                 quantity: product.quantity)),

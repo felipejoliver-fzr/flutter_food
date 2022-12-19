@@ -24,6 +24,7 @@ abstract class _CartStoreBase with Store {
     ..add(ProductItem(
         id: value,
         name: 'X-Burguer ${value}',
+        description: '',
         price: 20,
         img: "xburguer.png",
         quantity: 1)));

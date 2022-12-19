@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food/pages/Details/details.dart';
+import 'package:flutter_food/pages/home/home.dart';
 import 'package:flutter_food/shared/cart-store.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Observer(builder: (context) {
       return MaterialApp(
-        routes: routes,
+        routes: {...routes},
         title: _title,
         initialRoute: '/',
       );
