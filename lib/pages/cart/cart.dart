@@ -7,6 +7,7 @@ import 'package:flutter_food/models/order.dart';
 import 'package:flutter_food/shared/cart-store.dart';
 import 'package:flutter_food/utils/customStyles.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class Cart extends StatefulWidget {
@@ -89,15 +90,18 @@ class _CartState extends State<Cart> {
                   child: ElevatedButton(
                     onPressed: () async {
                       List<String> productsString = [];
+                      double totalPrice = 0;
 
                       for (var c = 0; c < cartStore.cartProducts.length; c++) {
                         var product = cartStore.cartProducts[c];
+                        totalPrice += product.price;
                         productsString.add(
                             '{"name": ${product.name}, "price": ${product.price}, "quantity": 1}');
                       }
 
                       String jsonProducts = jsonEncode(productsString);
-                      Order order = Order('Cliente Teste', jsonProducts);
+                      String datetime = DateFormat.yMMMd().format(DateTime.now());
+                      Order order = Order('Cliente Teste', jsonProducts, datetime: datetime, price: totalPrice);
 
                       int id = await OrderDAO().insertOrder(order);
                       cartStore.clear();
