@@ -25,10 +25,7 @@ class OrderItem extends StatelessWidget {
         child: Image.asset("images/pedido.png", fit: BoxFit.cover),
       ),
       title: Text(" #${code!.padLeft(5, '0')} "),
-      subtitle: Text(" ${datetime}  - R\$ $price "),
-      onLongPress: () {
-        // Redirecionar para o carrinho
-      }
+      subtitle: Text(" ${datetime}  - R\$ $price ")
     );
   }
 }
