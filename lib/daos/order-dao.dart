@@ -9,7 +9,7 @@ class OrderDAO {
         await openDatabase(join(await getDatabasesPath(), 'order_database.db'),
             onCreate: ((db, version) {
       return db.execute(
-          "CREATE TABLE Orders(id INTEGER PRIMARY KEY, clientName TEXT, items TEXT)");
+          "CREATE TABLE Orders(id INTEGER PRIMARY KEY, clientName TEXT, items TEXT, price DOUBLE, datetime TEXT)");
     }), version: 1);
 
     return db;
@@ -21,7 +21,9 @@ class OrderDAO {
 
     final result = List.generate(maps.length, (index) {
       return Order(maps[index]['clientName'], maps[index]['items'],
-          id: maps[index]['id']);
+          id: maps[index]['id'],
+          price: maps[index]['price'],
+          datetime: maps[index]['datetime']);
     });
 
     return result;
