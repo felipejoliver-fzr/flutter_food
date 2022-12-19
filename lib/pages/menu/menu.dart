@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_food/components/product-item.dart';
-import 'package:flutter_food/daos/product-dao.dart';
-import 'package:flutter_food/models/product.dart';
 import 'package:flutter_food/pages/Details/details.dart';
 import 'package:flutter_food/shared/cart-store.dart';
 import 'package:provider/provider.dart';
@@ -61,15 +59,13 @@ class _MenuState extends State<Menu> {
   Widget build(BuildContext context) {
     final cartStore = context.read<CartStore>();
     return Scaffold(
-      appBar:
-          AppBar(title: const Center(child: Text('NOSSO CARDÁPIO')), actions: [
-        IconButton(
-            onPressed: () {
-              cartStore.increment();
-              cartStore.addToCart();
-            },
-            icon: const Icon(Icons.shopping_cart_outlined))
-      ]),
+      appBar: AppBar(
+          title: const Center(child: Text('NOSSO CARDÁPIO')),
+          actions: [
+            IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.shopping_cart_outlined))
+          ]),
       body: ListView.separated(
           itemBuilder: (context, index) => _buildItem(index),
           // ignore: prefer_const_constructors

@@ -45,7 +45,7 @@ class _CartState extends State<Cart> {
       body: Column(children: [
         Observer(builder: (_) {
           return Visibility(
-            visible: cartStore.listContains == false,
+            visible: cartStore.listContains == true,
             child: const Text(
               "Carrinho vazio",
               textAlign: TextAlign.center,
@@ -101,8 +101,10 @@ class _CartState extends State<Cart> {
                       }
 
                       String jsonProducts = jsonEncode(productsString);
-                      String datetime = DateFormat.yMMMd().format(DateTime.now());
-                      Order order = Order('Cliente Teste', jsonProducts, datetime: datetime, price: totalPrice);
+                      String datetime =
+                          DateFormat.yMMMd().format(DateTime.now());
+                      Order order = Order('Cliente Teste', jsonProducts,
+                          datetime: datetime, price: totalPrice);
 
                       int id = await OrderDAO().insertOrder(order);
                       cartStore.clear();

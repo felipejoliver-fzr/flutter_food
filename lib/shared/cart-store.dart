@@ -15,19 +15,19 @@ abstract class _CartStoreBase with Store {
   int value = 0;
 
   @action
-  void increment() {
-    value++;
+  void increment(quant) {
+    value = quant;
   }
 
   @action
-  void addToCart() => List.from(cartProducts
+  void addToCart(product, quant) => List.from(cartProducts
     ..add(ProductItem(
         id: value,
-        name: 'X-Burguer ${value}',
+        name: product.name,
         description: '',
-        price: 20,
+        price: product.price * quant,
         img: "xburguer.png",
-        quantity: 1)));
+        quantity: quant)));
 
   @action
   void removeItem(idToRemove) =>

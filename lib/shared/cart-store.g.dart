@@ -49,22 +49,22 @@ mixin _$CartStore on _CartStoreBase, Store {
       ActionController(name: '_CartStoreBase', context: context);
 
   @override
-  void increment() {
+  void increment(quant) {
     final _$actionInfo = _$_CartStoreBaseActionController.startAction(
         name: '_CartStoreBase.increment');
     try {
-      return super.increment();
+      return super.increment(quant);
     } finally {
       _$_CartStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void addToCart() {
+  void addToCart(product, value) {
     final _$actionInfo = _$_CartStoreBaseActionController.startAction(
         name: '_CartStoreBase.addToCart');
     try {
-      return super.addToCart();
+      return super.addToCart(product, value);
     } finally {
       _$_CartStoreBaseActionController.endAction(_$actionInfo);
     }

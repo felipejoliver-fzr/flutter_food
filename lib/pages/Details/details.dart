@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food/shared/cart-store.dart';
+import 'package:provider/provider.dart';
 
 import '../../components/product-item.dart';
 
@@ -12,10 +14,12 @@ class DetailsProducts extends StatefulWidget {
 }
 
 class _DetailsProductsState extends State<DetailsProducts> {
-  late int _increment = 0;
+  late int _increment = 1;
 
   @override
   Widget build(BuildContext context) {
+    final cartStore = context.read<CartStore>();
+
     return Scaffold(
         appBar: AppBar(
           actions: [
@@ -46,7 +50,7 @@ class _DetailsProductsState extends State<DetailsProducts> {
                     TextButton(
                       child: const Text('-'),
                       onPressed: () => setState(() => {
-                            if (_increment >= 1) {_increment--}
+                            if (_increment >= 2) {_increment--}
                           }),
                     ),
                     const SizedBox(width: 8),
@@ -57,7 +61,11 @@ class _DetailsProductsState extends State<DetailsProducts> {
                     ),
                     const SizedBox(width: 8),
                     OutlinedButton(
-                      onPressed: () => {},
+                      onPressed: () => {
+                        cartStore.increment(_increment),
+                        cartStore.addToCart(widget.product, _increment),
+                        Navigator.pop(context)
+                      },
                       child: const Text('Adicionar ao carrinho'),
                     )
                   ],
