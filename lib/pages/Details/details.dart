@@ -22,11 +22,7 @@ class _DetailsProductsState extends State<DetailsProducts> {
 
     return Scaffold(
         appBar: AppBar(
-          actions: [
-            IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.shopping_cart_outlined))
-          ],
+          title: const Center(child: Text('Detalhes')),
         ),
         body: Padding(
             padding: const EdgeInsets.only(top: 20),

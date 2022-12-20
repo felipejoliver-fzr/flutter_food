@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 
 const cardPadding = EdgeInsets.symmetric(horizontal: 16, vertical: 8);

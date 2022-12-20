@@ -1,3 +1,4 @@
+// ignore_for_file: file_names
 import 'package:path/path.dart';
 import 'package:flutter_food/models/product.dart';
 import 'package:sqflite/sqflite.dart';

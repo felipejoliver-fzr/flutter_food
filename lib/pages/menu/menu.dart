@@ -5,6 +5,8 @@ import 'package:flutter_food/shared/cart-store.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_food/utils/customStyles.dart';
 
+import '../home/home_controller.dart';
+
 class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);
 
@@ -40,32 +42,13 @@ class _MenuState extends State<Menu> {
         quantity: 1),
   ];
 
-  //List<Product> products = [];
-
-  //@override
-  //void initState() {
-  //  super.initState();
-  //  getAllProducts();
-  //}
-
-  //getAllProducts() async {
-  //  List<Product> result = await ProductDAO.readAll();
-  //  setState(() {
-  //    products = result;
-  //  });
-  //}
-
   @override
   Widget build(BuildContext context) {
+    final _controller = HomeController();
+
     final cartStore = context.read<CartStore>();
     return Scaffold(
-      appBar: AppBar(
-          title: const Center(child: Text('NOSSO CARDÁPIO')),
-          actions: [
-            IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.shopping_cart_outlined))
-          ]),
+      appBar: AppBar(title: const Center(child: Text('NOSSO CARDÁPIO'))),
       body: ListView.separated(
           itemBuilder: (context, index) => _buildItem(index),
           // ignore: prefer_const_constructors
@@ -74,18 +57,6 @@ class _MenuState extends State<Menu> {
                 color: Colors.black12,
               ),
           itemCount: products.length),
-      //body: Center(
-      //child: Column(
-      //  mainAxisAlignment: MainAxisAlignment.center,
-      //  children: <Widget>[
-      //    Observer(
-      //      builder: (_) => const Text('teste'
-      //          //'${cartStore.getValue} ${cartStore.cartProducts.last.name}',
-      //          ),
-      //    ),
-      //  ],
-      //),
-      //),
     );
   }
 

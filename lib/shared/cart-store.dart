@@ -4,6 +4,7 @@ import 'package:flutter_food/components/product-item.dart';
 import 'package:mobx/mobx.dart';
 part 'cart-store.g.dart';
 
+// ignore: library_private_types_in_public_api
 class CartStore = _CartStoreBase with _$CartStore;
 
 abstract class _CartStoreBase with Store {
