@@ -1,18 +1,32 @@
-# flutter_food
+# Futter Food
 
-A new Flutter project.
+<p align="center">
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License MIT">
+  </a>
+</p>
 
-## Getting Started
+Aplicativo criado durando a aula de mobile engineering com flutter.
 
-This project is a starting point for a Flutter application.
+- O Flutter Food tem como objetivo demonstrar os conhecimentos em flutter adquiridos durante a disciplina! Ele faz uso de libs como Mobx, sqflite entre outras.
 
-A few resources to get you started if this is your first Flutter project:
+### Como excutar esse projeto.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Passo a passo
+        1. Clone o projeto
+        2. Use o comando - `Flutter run`. Obs: é necessário um emulador ativo.
+ 
+#### Video de demonstração
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Youtube `https://www.youtube.com/watch?v=ocaGHvJKw6U`.
 
-Date 19/12/2022
+        
+#### Telas do aplicativo
+![Home](https://github.com/Marcelo8173/HTML-CSS-e-JavaScript/blob/master/Captura%20de%20tela%20de%202022-12-19%2023-14-42.png).
+![Detalhes](https://github.com/Marcelo8173/HTML-CSS-e-JavaScript/blob/master/Captura%20de%20tela%20de%202022-12-19%2023-14-54.png).
+![Carrinho](https://github.com/Marcelo8173/HTML-CSS-e-JavaScript/blob/master/Captura%20de%20tela%20de%202022-12-20%2011-18-45.png).
+![Pedidos](https://github.com/Marcelo8173/HTML-CSS-e-JavaScript/blob/master/Captura%20de%20tela%20de%202022-12-20%2011-35-14.png).
+ 
+
+
+
