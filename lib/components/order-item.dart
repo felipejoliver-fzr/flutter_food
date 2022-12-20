@@ -8,9 +8,9 @@ class OrderItem extends StatelessWidget {
       required this.price,
       required this.datetime});
 
-  final double code;
-  final double price;
-  final DateTime? datetime;
+  final String? code;
+  final double? price;
+  final String? datetime;
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +24,8 @@ class OrderItem extends StatelessWidget {
         ),
         child: Image.asset("images/pedido.png", fit: BoxFit.cover),
       ),
-      title: Text(" #$code "),
-      subtitle: Text(" ${DateFormat.yMMMd().format(datetime ?? DateTime.now())}  - R\$ $price "),
-      onLongPress: () {
-        // Redirecionar para o carrinho
-      }
+      title: Text(" #${code!.padLeft(5, '0')} "),
+      subtitle: Text(" ${datetime}  - R\$ $price ")
     );
   }
 }
