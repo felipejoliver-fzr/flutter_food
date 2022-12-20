@@ -45,7 +45,7 @@ class _CartState extends State<Cart> {
       body: Column(children: [
         Observer(builder: (_) {
           return Visibility(
-            visible: cartStore.listContains == true,
+            visible: cartStore.listContains == false,
             child: const Text(
               "Carrinho vazio",
               textAlign: TextAlign.center,
