@@ -28,5 +28,6 @@ Aplicativo criado durando a aula de mobile engineering com flutter.
 ![Pedidos](https://github.com/Marcelo8173/HTML-CSS-e-JavaScript/blob/master/Captura%20de%20tela%20de%202022-12-20%2011-35-14.png).
  
 
-
+### Notas 
+- Link figma: https://www.figma.com/file/j6Uoobc6GEaJGuswaGx5Gg/Projeto-mobile?node-id=45%3A2&t=PR3QuhSukQm4WOEt-0
 
